@@ -1,0 +1,13 @@
+{
+  "files.associations": {
+    "utility": "cpp",
+    "xutility": "cpp",
+    "ostream": "cpp",
+    "xstring": "cpp",
+    "string": "cpp",
+    "iostream": "cpp"
+  },
+  "cSpell.words": [
+    "Histograma"
+  ]
+}

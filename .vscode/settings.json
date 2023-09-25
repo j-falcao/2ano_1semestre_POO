@@ -10,5 +10,9 @@
     "istream": "cpp",
     "list": "cpp"
   },
-  "cSpell.words": ["Histograma", "lista"]
+  "cSpell.words": [
+    "Histograma",
+    "lista"
+  ],
+  "C_Cpp.errorSquiggles": "disabled"
 }

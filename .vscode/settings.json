@@ -6,9 +6,9 @@
     "xstring": "cpp",
     "string": "cpp",
     "iostream": "cpp",
-    "iosfwd": "cpp"
+    "iosfwd": "cpp",
+    "istream": "cpp",
+    "list": "cpp"
   },
-  "cSpell.words": [
-    "Histograma"
-  ]
+  "cSpell.words": ["Histograma", "lista"]
 }

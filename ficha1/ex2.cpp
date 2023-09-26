@@ -56,8 +56,11 @@ public:
     bool existRepetition(){
         set<string> seen;
         list<string>::iterator it;
-        for (it = lista.begin(); it != lista.end(); ++it)
-            if(seen.find(*it) != seen.end()) return false;
+        for (it = lista.begin(); it != lista.end(); ++it){
+            if(seen.find(*it) != seen.end())  // se word in seen
+                return false;
+            seen.insert(*it);
+        }
         return true;
     }
 
@@ -92,8 +95,7 @@ public:
     }
 };
 
-int main()
-{
+int main(){
 
     listFeatures lista;
     lista.initializeFromFile("./inputList.txt");
@@ -101,12 +103,12 @@ int main()
     lista.showList();
     lista.showListReversed();
 
-    /* cout << "\tdeleting" << endl;
+    cout << "\tdeleting" << endl;
     lista.deleteNodeByValue("eu");
     lista.showList();
 
     lista.deleteNodeByIndex(0);
-    lista.showList(); */
+    lista.showList();
  
     cout << "repetition: " << lista.existRepetition() << endl;
 

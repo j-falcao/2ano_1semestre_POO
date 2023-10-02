@@ -1,4 +1,4 @@
-#include "Person.cpp"
+#include "Manager.cpp"
 
 int main(){
     Person p1("joao", "Aveiro", 21);

@@ -9,5 +9,9 @@ Person::Person(string name, string city, int age) {
 string Person::getName() { return this->name; }
 string Person::getCity() { return this->city; }
 int Person::getInt() { return this->age; }
-void showPerson
+void Person::showPerson(){
+    cout << "\t\x1B[34mName: \033[0m" << this->name << ' '; // Name
+    cout << "\x1B[34mCity: \033[0m" << this->city << ' ';   // City
+    cout << "\x1B[34mAge: \033[0m" << this->age << ' ';     // Age
+}
 

@@ -12,7 +12,7 @@ public:
     Person(string name, string city, int age);
     string getName();
     string getCity();
-    int getInt();
+    int getAge();
     void showPerson();
 };
 

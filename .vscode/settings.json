@@ -8,11 +8,9 @@
     "iostream": "cpp",
     "iosfwd": "cpp",
     "istream": "cpp",
-    "list": "cpp"
+    "list": "cpp",
+    "vector": "cpp"
   },
-  "cSpell.words": [
-    "Histograma",
-    "lista"
-  ],
+  "cSpell.words": ["Histograma", "lista"],
   "C_Cpp.errorSquiggles": "disabled"
 }

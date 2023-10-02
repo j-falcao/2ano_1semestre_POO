@@ -1,8 +1,9 @@
 #include "Manager.cpp"
 
 int main(){
-    Person p1("joao", "Aveiro", 21);
-    p1.showPerson();
+    Manager m;
+    if(!m.readFile(".\\pessoas.txt")) cout << "Something went wrong reading the file. Try checking the data order inside the file\n";
+    m.showPeople();
 
     return 0;
 }

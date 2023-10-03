@@ -12,7 +12,9 @@ int main(){
     m.addPerson(p1);
     m.showPeople();
 
-    m.writeFile(".\\people.txt");
+    Person* p1Found = m.searchPerson(p1->getName());
+    if(p1Found != nullptr) p1Found->showPerson();
+    
 
     return 0;
 }

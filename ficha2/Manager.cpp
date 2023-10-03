@@ -60,10 +60,10 @@ bool Manager::deletePerson(Person *P){
     }else return false;
 }
 
-bool Manager::deletePerson(string nome){
+bool Manager::deletePerson(string name){
     list<Person*>::iterator it;
     for(it = this->people.begin(); it != this->people.end(); it++)
-        if((*it)->getName() == nome) break;
+        if((*it)->getName() == name) break;
 
 
     if(it != this->people.end()){
@@ -76,11 +76,17 @@ bool Manager::writeFile(string fileName){
     fstream file(fileName, ios::out);
     if(!file.is_open()) return false;
 
-
     for(list<Person*>::iterator it = this->people.begin(); it != this->people.end(); it++)
         file << (*it)->getName() << ';' << (*it)->getCity() << ';' << (*it)->getAge() << '\n';
 
-
     file.close();
     return true;
+}
+
+Person* Manager::searchPerson(string name){
+    list<Person*>::iterator it;
+    for(it = this->people.begin(); it != this->people.end(); it++)
+        if((*it)->getName() == name) break;
+
+    return it != this->people.end() ? *it : nullptr;
 }

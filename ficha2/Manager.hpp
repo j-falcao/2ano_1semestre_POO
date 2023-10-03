@@ -15,8 +15,9 @@ public:
     bool readFile(string fileName);
     void showPeople();
     bool deletePerson(Person *P);
-    bool deletePerson(string nome);
+    bool deletePerson(string name);
     bool writeFile(string fileName);
+    Person* searchPerson(string name);
 };
 
 

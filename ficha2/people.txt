@@ -5,4 +5,3 @@ Porto;Antonio Lopes;35
 Porto;Pedro Miguel;35
 Porto;Joana Monteiro;23
 Coimbra;Miguel Sales;24
-Joao;Aveiro;21

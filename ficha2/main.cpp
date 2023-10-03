@@ -12,9 +12,7 @@ int main(){
     m.addPerson(p1);
     m.showPeople();
 
-    Person* p1Found = m.searchPerson(p1->getName());
-    if(p1Found != nullptr) p1Found->showPerson();
-    
+    cout << "Most populated city: " << m.GetMostPopulatedCity() << endl;
 
     return 0;
 }

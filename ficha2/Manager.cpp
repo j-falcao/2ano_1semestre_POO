@@ -2,6 +2,7 @@
 #include <fstream>
 #include <sstream>
 #include <string>
+#include <map>
 #include <regex>
 using namespace std;
 
@@ -11,6 +12,7 @@ bool Manager::addPerson(string name, string city, int age){
     this->people.push_back(newPerson);
     return true;
 }
+
 bool Manager::addPerson(Person *P)
 {
     if (P->getName().empty() || P->getCity().empty() || P->getAge() < 0) return false;
@@ -37,7 +39,7 @@ bool Manager::readFile(string fileName){
         row[1] = std::regex_replace(row[1], std::regex("^ +| +$|( ) +"), "$1");
         row[2] = std::regex_replace(row[2], std::regex("^ +| +$|( ) +"), "$1");
 
-        if(!addPerson(row[0], row[1], stoi(row[2]))) {
+        if(!addPerson(row[1], row[0], stoi(row[2]))) {
             file.close();
             return false;
         };
@@ -46,6 +48,7 @@ bool Manager::readFile(string fileName){
     file.close();
     return true;
 }
+
 void Manager::showPeople(){
     cout << endl;
     for (const auto person : this->people) person->showPerson();
@@ -89,4 +92,21 @@ Person* Manager::searchPerson(string name){
         if((*it)->getName() == name) break;
 
     return it != this->people.end() ? *it : nullptr;
+}
+
+string Manager::GetMostPopulatedCity(){
+    map<string, int> populations;
+    for(list<Person*>::iterator it = this->people.begin(); it != this->people.end(); it++) populations[(*it)->getCity()]++;
+    
+
+    int biggerPopulation = 0;
+    string mostPopulatedCity = "Invalid Input!";
+    for(const auto& it: populations){
+        if(it.second > biggerPopulation){ 
+            biggerPopulation = it.second;
+            mostPopulatedCity = it.first;
+        }
+    }
+    
+    return mostPopulatedCity;
 }

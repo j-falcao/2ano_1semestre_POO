@@ -3,8 +3,6 @@
 
 #include "Person.cpp"
 #include <list>
-#include <vector>
-#include <map>
 using namespace std;
 
 class Manager{
@@ -18,6 +16,7 @@ public:
     bool deletePerson(string name);
     bool writeFile(string fileName);
     Person* searchPerson(string name);
+    string GetMostPopulatedCity();
 };
 
 

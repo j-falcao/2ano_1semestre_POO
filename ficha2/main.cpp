@@ -8,15 +8,11 @@ int main(){
     }
 
 
-
-    Person *p1 = new Person("Joaozinho", "Aveiro", 21);
+    Person *p1 = new Person("Joao", "Aveiro", 21);
     m.addPerson(p1);
-
-    m.showPeople();
-    m.deletePerson(p1->getName());
     m.showPeople();
 
-
+    m.writeFile(".\\people.txt");
 
     return 0;
 }

@@ -73,5 +73,14 @@ bool Manager::deletePerson(string nome){
 }
 
 bool Manager::writeFile(string fileName){
-    fstream file()
+    fstream file(fileName, ios::out);
+    if(!file.is_open()) return false;
+
+
+    for(list<Person*>::iterator it = this->people.begin(); it != this->people.end(); it++)
+        file << (*it)->getName() << ';' << (*it)->getCity() << ';' << (*it)->getAge() << '\n';
+
+
+    file.close();
+    return true;
 }

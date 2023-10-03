@@ -1,7 +1,8 @@
 Viseu;Luis Miguel;25
-Viseu; Carlos Lopes Andrade; 30
+Viseu;Carlos Lopes Andrade;30
 Lisboa;Jose Francisco;45
 Porto;Antonio Lopes;35
-Porto; Pedro Miguel;
-Porto; Joana Monteiro; 23
-Coimbra; Miguel Sales; 24
+Porto;Pedro Miguel;35
+Porto;Joana Monteiro;23
+Coimbra;Miguel Sales;24
+Joao;Aveiro;21

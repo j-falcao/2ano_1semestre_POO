@@ -9,7 +9,9 @@
     "iosfwd": "cpp",
     "istream": "cpp",
     "list": "cpp",
-    "vector": "cpp"
+    "vector": "cpp",
+    "forward_list": "cpp",
+    "xtree": "cpp"
   },
   "cSpell.words": ["Histograma", "lista"],
   "C_Cpp.errorSquiggles": "disabled"

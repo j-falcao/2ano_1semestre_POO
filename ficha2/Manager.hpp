@@ -14,6 +14,7 @@ public:
     bool addPerson(Person *P);
     bool readFile(string fileName);
     void showPeople();
+    bool deletePerson(Person *P);
 };
 
 

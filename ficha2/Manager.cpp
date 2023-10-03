@@ -51,3 +51,13 @@ void Manager::showPeople(){
     for (const auto person : this->people) person->showPerson();
     cout << endl;
 }
+
+bool Manager::deletePerson(Person *P){
+    list<Person*>::iterator it = find(this->people.begin(), this->people.end(), P);
+
+    if(it != this->people.end()){
+        this->people.erase(it);
+        return true;
+    }
+    return false;
+}

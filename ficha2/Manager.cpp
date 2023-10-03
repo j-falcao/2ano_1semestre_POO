@@ -54,10 +54,24 @@ void Manager::showPeople(){
 
 bool Manager::deletePerson(Person *P){
     list<Person*>::iterator it = find(this->people.begin(), this->people.end(), P);
+    if(it != this->people.end()){
+        this->people.erase(it);
+        return true;
+    }else return false;
+}
+
+bool Manager::deletePerson(string nome){
+    list<Person*>::iterator it;
+    for(it = this->people.begin(); it != this->people.end(); it++)
+        if((*it)->getName() == nome) break;
+
 
     if(it != this->people.end()){
         this->people.erase(it);
         return true;
-    }
-    return false;
+    }else return false;
+}
+
+bool Manager::writeFile(string fileName){
+    fstream file()
 }

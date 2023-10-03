@@ -13,8 +13,10 @@ int main(){
     m.addPerson(p1);
 
     m.showPeople();
-    m.deletePerson(p1);
+    m.deletePerson(p1->getName());
     m.showPeople();
+
+
 
     return 0;
 }

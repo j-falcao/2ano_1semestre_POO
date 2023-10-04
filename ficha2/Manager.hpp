@@ -17,6 +17,7 @@ public:
     bool writeFile(string fileName);
     Person* searchPerson(string name);
     string GetMostPopulatedCity();
+    void deletePeople();
 };
 
 

@@ -7,12 +7,13 @@ int main(){
         return -1;
     }
 
-
     Person *p1 = new Person("Joao", "Aveiro", 21);
     m.addPerson(p1);
     m.showPeople();
 
     cout << "Most populated city: " << m.GetMostPopulatedCity() << endl;
+
+    m.deletePeople();
 
     return 0;
 }

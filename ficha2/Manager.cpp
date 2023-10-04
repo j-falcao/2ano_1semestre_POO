@@ -110,3 +110,9 @@ string Manager::GetMostPopulatedCity(){
     
     return mostPopulatedCity;
 }
+
+void Manager::deletePeople(){
+    for(list<Person*>::iterator it = this->people.begin(); it != this->people.end(); it++)
+        delete (*it);
+    this->people.erase(this->people.begin(), this->people.end());
+}

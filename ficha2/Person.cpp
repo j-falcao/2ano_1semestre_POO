@@ -2,6 +2,7 @@
 using namespace std;
 
 Person::Person(string name, string city, int age) {
+    if(age < 0 || age > 130) age = 18;
     this->name = name;
     this->city = city;
     this->age = age;

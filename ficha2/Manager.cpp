@@ -7,15 +7,14 @@
 using namespace std;
 
 bool Manager::addPerson(string name, string city, int age){
-    if (name.empty() || city.empty() || age < 0) return false;
+    if (name.empty() || city.empty()) return false;
     Person *newPerson = new Person(name, city, age);
     this->people.push_back(newPerson);
     return true;
 }
 
-bool Manager::addPerson(Person *P)
-{
-    if (P->getName().empty() || P->getCity().empty() || P->getAge() < 0) return false;
+bool Manager::addPerson(Person *P){
+    if (P->getName().empty() || P->getCity().empty()) return false;
     this->people.push_back(P);
     return true;
 }
@@ -25,24 +24,32 @@ bool Manager::readFile(string fileName){
     if (!file.is_open()) return false;
 
     string line, word;
-    vector<string> row;
+    vector<string> row(3);
 
     while (getline(file, line)){
+        row[0].clear(), row[1].clear(), row[2].clear();
 
-        row.clear();
+        int rowIndex = 0;
         stringstream s(line);
+        while(getline(s, word, ';')) row[rowIndex++] = word;
 
-        while(getline(s, word, ';')) row.push_back(word);
+        if(row[0].empty()) return false;
+        if(row[1].empty()) return false;
+        if(row[2].empty()) row[2] = "18";
 
         // Removing leading and trailing whitespaces
         row[0] = std::regex_replace(row[0], std::regex("^ +| +$|( ) +"), "$1");
         row[1] = std::regex_replace(row[1], std::regex("^ +| +$|( ) +"), "$1");
         row[2] = std::regex_replace(row[2], std::regex("^ +| +$|( ) +"), "$1");
 
-        if(!addPerson(row[1], row[0], stoi(row[2]))) {
-            file.close();
-            return false;
-        };
+        int age;
+        try{
+            age = stoi(row[2]);
+        }catch(std::invalid_argument invalid){
+            age = 18;
+        }
+
+        addPerson(row[1], row[0], age);
     }
 
     file.close();

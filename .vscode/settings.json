@@ -13,6 +13,12 @@
     "forward_list": "cpp",
     "xtree": "cpp"
   },
-  "cSpell.words": ["Histograma", "lista"],
+  "cSpell.words": [
+    "construindo",
+    "Histograma",
+    "lista",
+    "prego",
+    "texto"
+  ],
   "C_Cpp.errorSquiggles": "disabled"
 }

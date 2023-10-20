@@ -2,18 +2,19 @@
 #define PESSOA_H
 
 #include <iostream>
-#include <string>
+using namespace std;
 
 class Person{
-    std::string name;
+    string name, city;
     int age;
 public:
-
-    Person(int id, std::string name, int age);
+    Person(string city, string name, int age);
     ~Person();
 
-    std::string getName();
+    string getName();
+    string getCity();
     int getAge();
+    void showPerson();
 };
 
 

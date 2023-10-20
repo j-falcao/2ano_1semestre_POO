@@ -5,116 +5,7 @@
 #include <map>
 
 
-Prego* pregoComMaisAvisos(std::vector<Aviso*> avisos){
-    std::map<Prego*, int> freqs;
-    for(Aviso* a: avisos) freqs[a->getPrego()]++;
-    if(freqs.empty()) return nullptr;
-
-    Prego *res;
-    int maxQtAvisos = INT_MIN;
-    for(auto it: freqs) {
-        if(it.second > maxQtAvisos){
-            maxQtAvisos = it.second;
-            res = it.first;
-        }
-    }
-    return res;
-}
-
-
-void removerAviso(Aviso* A, std::vector<Aviso*>& avisos){
-    for(std::vector<Aviso*>::iterator avisoIt = avisos.begin(); avisoIt != avisos.end(); avisoIt++){
-        if(*avisoIt == A)
-            avisos.erase(avisoIt);
-    }
-
-    A->removeAviso();
-}
-
-void removerAvisoEmPrego(Prego* P, std::vector<Aviso*>& avisos){
-    for(std::vector<Aviso*>::iterator avisoIt = avisos.begin(); avisoIt != avisos.end(); avisoIt++){
-        if((*avisoIt)->getPrego() == P) 
-            avisos.erase(avisoIt);
-    }
-}
-
-void removerPrego(Prego* P, std::vector<Prego*>& pregos){
-    for(std::vector<Prego*>::iterator pregoIt = pregos.begin(); pregoIt != pregos.end(); pregoIt++){
-        if(*pregoIt == P) 
-            pregos.erase(pregoIt);
-    }  
-
-    P->removePrego();
-}
-
-
-int main() {
-    Prego *p1 = new Prego(0, 0);
-    Prego *p2 = new Prego(1, 1);
-    Prego *p3 = new Prego(2, 2);
-    Prego *p4 = new Prego(3, 3);
-    Prego *p5 = new Prego(4, 4);
-
-    std::vector<Prego*> pregos;
-    pregos.push_back(p1);
-    pregos.push_back(p2);
-    pregos.push_back(p3);
-    pregos.push_back(p4);
-    pregos.push_back(p5);
-
-
-
-    Aviso *a1 = new Aviso("Aviso 1", p1);
-    Aviso *a2 = new Aviso("Aviso 2", p2);
-    Aviso *a3 = new Aviso("Aviso 3", p3);
-    Aviso *a4 = new Aviso("Aviso 1", p4);
-    Aviso *a5 = new Aviso("Aviso 5", p5);
-    Aviso *a6 = new Aviso("Aviso 6", p2);
-    Aviso *a7 = new Aviso("Aviso 7", p2);
-    Aviso *a8 = new Aviso("Aviso 1", p1);
-    Aviso *a9 = new Aviso("Aviso 9", p4);
-
-    std::vector<Aviso*> avisos;
-    avisos.push_back(a1);
-    avisos.push_back(a2);
-    avisos.push_back(a3);
-    avisos.push_back(a4);
-    avisos.push_back(a5);
-    avisos.push_back(a6);
-    avisos.push_back(a7);
-    avisos.push_back(a8);
-    avisos.push_back(a9);
-
-
-    for(Prego* p: pregos) p->showPrego();
-
-    //change prego location
-    p1->changeLocation(69, 69);
-    for(Prego* p: pregos) p->showPrego(); 
-
-    //prego mais avisos
-    std::cout << "\n\n";
-    pregoComMaisAvisos(avisos)->showPrego();
-    std::cout << "\n\n"; 
-
-    //remove aviso a1
-    removerAviso(a1, avisos);
-
-    //remove prego p1
-    removerAvisoEmPrego(p1, avisos);
-    removerPrego(p1, pregos);
-    
-    //free memory
-    for(Aviso* a: avisos) delete a;
-    for(Prego* p: pregos) delete p;
-
-    return 0;
-} 
-
-
-
-
-/* class Prego{
+class Prego{
     int x, y;
     std::vector<Aviso*> avisos;
 public:
@@ -154,7 +45,7 @@ public:
 
     void addAviso(Aviso* A){ avisos.push_back(A); }
 
-    bool delAviso(Aviso* A){ 
+    bool removerAviso(Aviso* A){ 
         for(std::vector<Aviso*>::iterator avisoIt = avisos.begin(); avisoIt != avisos.end(); avisoIt++){
             if(*avisoIt == A){
                 delete(*avisoIt);
@@ -265,4 +156,3 @@ int main() {
 
     return 0;
 } 
- */

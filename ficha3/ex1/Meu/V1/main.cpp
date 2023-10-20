@@ -1,47 +1,8 @@
+#include "src\\Prego.cpp"
+#include "src\\Aviso.cpp"
 #include <iostream>
 #include <vector>
 #include <map>
-
-
-class Prego{
-    int x, y;
-    // std::vector<Aviso*> avisos;
-public:
-    Prego(int a, int b){
-        x = a; y = b;
-        std::cout << "construindo prego em " << x << ", " << y << "\n";
-    }
-
-    ~Prego() { std::cout << "destruindo prego em " << x << "," << y << "\n"; }
-
-    void changeLocation(int a, int b) { x = a; y = b; }
-
-    void showPrego()  { std::cout << "Prego esta em (" << x << ", " << y << ")\n"; }
-
-    void removePrego() { delete this; }
-};
-
-class Aviso{
-    std::string texto;
-    Prego* prego;
-public:
-    Aviso(std::string texto, Prego* prego) {
-        std::cout << "construindo aviso: " << texto << "\n";
-        this->prego = prego;
-        this->texto = texto;
-    }
-
-    ~Aviso(){
-        std::cout << "destruindo aviso: '" << texto << "'\n";
-    }
-
-    void removeAviso(){ delete this; }
-
-    std::string getTexto() { return texto; }
-
-    Prego* getPrego(){ return prego; }
-
-};
 
 
 Prego* pregoComMaisAvisos(std::vector<Aviso*> avisos){
@@ -61,6 +22,30 @@ Prego* pregoComMaisAvisos(std::vector<Aviso*> avisos){
 }
 
 
+void removerAviso(Aviso* A, std::vector<Aviso*>& avisos){
+    for(std::vector<Aviso*>::iterator avisoIt = avisos.begin(); avisoIt != avisos.end(); avisoIt++){
+        if(*avisoIt == A)
+            avisos.erase(avisoIt);
+    }
+
+    A->removeAviso();
+}
+
+void removerAvisoEmPrego(Prego* P, std::vector<Aviso*>& avisos){
+    for(std::vector<Aviso*>::iterator avisoIt = avisos.begin(); avisoIt != avisos.end(); avisoIt++){
+        if((*avisoIt)->getPrego() == P) 
+            avisos.erase(avisoIt);
+    }
+}
+
+void removerPrego(Prego* P, std::vector<Prego*>& pregos){
+    for(std::vector<Prego*>::iterator pregoIt = pregos.begin(); pregoIt != pregos.end(); pregoIt++){
+        if(*pregoIt == P) 
+            pregos.erase(pregoIt);
+    }  
+
+    P->removePrego();
+}
 
 
 int main() {
@@ -113,18 +98,11 @@ int main() {
     std::cout << "\n\n"; 
 
     //remove aviso a1
-    a1->removeAviso();
-    std::remove(avisos.begin(), avisos.end(), a1);
+    removerAviso(a1, avisos);
 
     //remove prego p1
-    for(std::vector<Aviso*>::iterator avisoIt = avisos.begin(); avisoIt != avisos.end(); avisoIt++){
-        if((*avisoIt)->getPrego() == p2){ 
-            (*avisoIt)->removeAviso();
-            remove(avisos.begin(), avisos.end(), *avisoIt);
-        }
-    } 
-    p2->removePrego();
-    remove(pregos.begin(), pregos.end(), p2);
+    removerAvisoEmPrego(p1, avisos);
+    removerPrego(p1, pregos);
     
     //free memory
     for(Aviso* a: avisos) delete a;

@@ -2,7 +2,7 @@
 
 int main(){
     Manager m;
-    if(!m.readFile(".\\people.txt")){ 
+    if(!m.readFile(".\\..\\people.txt")){ 
         cout << "Something went wrong reading the file. Try checking the data order inside the file\n";
         return -1;
     }

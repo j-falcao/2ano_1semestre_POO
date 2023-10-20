@@ -3,9 +3,9 @@
 
 #include <iostream>
 #include <string>
+#include <set>
 
 class Person{
-    int id;
     std::string name;
     int age;
 public:
@@ -13,7 +13,6 @@ public:
     Person(int id, std::string name, int age);
     ~Person();
 
-    int getId();
     std::string getName();
     int getAge();
 };

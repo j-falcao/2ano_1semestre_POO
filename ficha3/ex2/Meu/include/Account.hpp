@@ -2,11 +2,13 @@
 #define CONTA_H
 
 #include "Person.hpp"
+#include "Bank.hpp"
 
 class Account{
+    friend class Bank;
+
     int balance;
     Person* AccountOwner;
-public:
 
     Account(Person* AccountOwner, int balance = 0);
     ~Account();

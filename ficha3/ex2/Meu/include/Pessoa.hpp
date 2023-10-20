@@ -3,7 +3,6 @@
 
 #include <iostream>
 #include <string>
-#include <set>
 
 class Person{
     std::string name;
@@ -16,8 +15,6 @@ public:
     std::string getName();
     int getAge();
 };
-
-
 
 
 #endif

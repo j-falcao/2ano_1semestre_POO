@@ -14,7 +14,7 @@ public:
     string getBankName();
 
     void Bank::addAccount(Person* person);
-    bool Bank::addAccount(Account& newAccount);
+    void Bank::addAccount(Person* person, int inicialBalance);
     bool delAccount(int BI_AccountOwner);
     Account* searchAccount(int BI_AccountOwner);
 

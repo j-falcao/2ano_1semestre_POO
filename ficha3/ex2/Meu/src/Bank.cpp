@@ -18,9 +18,9 @@ void Bank::addAccount(Person* person){
     this->accounts.insert(newAccount);
 }
 
-
-bool Bank::addAccount(Account& newAccount){
-    if(this->accounts.contains(newAccount)) return false;
+void Bank::addAccount(Person* person, int inicialBalance){
+    if(inicialBalance < 0) inicialBalance = 0;
+    Account newAccount(person, inicialBalance);
     this->accounts.insert(newAccount);
     return true;
 }

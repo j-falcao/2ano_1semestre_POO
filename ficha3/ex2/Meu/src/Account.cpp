@@ -1,8 +1,7 @@
 #include "..\\include\\Account.hpp"
 
 
-Account::Account(Person* AccountOwner, int balance = 0){
-    if(balance < 0) balance = 0;
+Account::Account(Person* AccountOwner, int inicialBalance = 0){
     this->AccountOwner = AccountOwner;
     this->balance = balance;
     this->idAccount = Account::idAccount++;

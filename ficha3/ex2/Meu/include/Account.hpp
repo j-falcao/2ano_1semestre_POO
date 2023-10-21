@@ -12,7 +12,7 @@ class Account{
     int balance, idAccount;
     Person* AccountOwner;
 
-    Account(Person* AccountOwner, int balance = 0);
+    Account(Person* AccountOwner, int inicialBalance = 0);
     ~Account();
 
     // copy constructor

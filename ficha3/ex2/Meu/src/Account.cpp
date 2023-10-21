@@ -3,10 +3,10 @@
 
 int Account::nextIdAccount = 0;
 
-Account::Account(Person* AccountOwner, int inicialBalance) {
+Account::Account(Person* AccountOwner, int inicialBalance) : idAccount(Account::nextIdAccount) {
     this->AccountOwner = AccountOwner;
-    this->balance = balance;
-    this->idAccount = Account::nextIdAccount++;
+    this->balance = inicialBalance;
+    Account::nextIdAccount++;
 }
 
 Account::~Account(){
@@ -19,12 +19,11 @@ Account::~Account(){
     this->AccountOwner = other.AccountOwner;
 } */
 
-/* Account& Account::operator=(const Account& other) {
+Account& Account::operator=(const Account& other) {
     this->balance = other.balance;
-    this->idAccount = other.idAccount;
     this->AccountOwner = other.AccountOwner;
     return *this;
-} */
+}
 
 bool Account::operator==(const Account& other) const {
     return this->idAccount == other.idAccount;
@@ -52,4 +51,11 @@ bool Account::decreaseBalance(int withdraw){
 
 const Person* Account::getAccountOwner() const {
     return AccountOwner;
+}
+
+void Account::showAccountDetails(){
+    cout << "\t\x1B[32mAccount id: \033[0m" << this->idAccount << ' ';  // idAccount
+    cout << "\x1B[32mBalance: \033[0m" << this->balance << '\n';        // balance
+    cout << '\t';
+    this->AccountOwner->showPerson();                                   // accountOwner
 }

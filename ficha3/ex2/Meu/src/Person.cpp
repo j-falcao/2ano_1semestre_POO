@@ -38,8 +38,8 @@ int Person::getBI(){
 }
 
 void Person::showPerson(){
-    cout << "\t\x1B[34mBI: \033[0m" << this->BI << ' '; // BI
-    cout << "\t\x1B[34mName: \033[0m" << this->name << ' '; // Name
+    cout << "\t\x1B[34mBI: \033[0m" << this->BI << ' ';     // BI
+    cout << "\x1B[34mName: \033[0m" << this->name << ' '; // Name
     cout << "\x1B[34mCity: \033[0m" << this->city << ' ';   // City
     cout << "\x1B[34mAge: \033[0m" << this->age << '\n';    // Age
 }

@@ -5,6 +5,7 @@
 
 int main(){
 
+    // Person creation
     Person *person1 = new Person("Aveiro", "Joao", 21);
     Person *person2 = new Person("Lisboa", "Pedro", 40);
     Person *person3 = new Person("Tomar", "Luis", 30);
@@ -12,10 +13,14 @@ int main(){
     Person *person5 = new Person("Aveiro", "Asdrubal", 90);
     Person *person6 = new Person("Porto", "Luisa", 18);
 
+    // Bank creation
     Bank *banco1 = new Bank("Santander");
     Bank *banco2 = new Bank("BPI");
 
-    cout << banco1->addAccount(person1, 69000) << endl;
+
+//? ---------TEST-1------------------------------------------
+
+    /* cout << banco1->addAccount(person1, 69000) << endl;
     cout << banco2->addAccount(person1, 6300) << endl;
     cout << banco1->commaSeperatedClientNames() << endl;
     cout << banco2->commaSeperatedClientNames() << endl;
@@ -25,7 +30,15 @@ int main(){
     cout << banco1->commaSeperatedClientNames() << endl;
     cout << banco2->commaSeperatedClientNames() << endl;
 
-    person1->showPerson();
+    person1->showPerson(); */
+
+//? ---------TEST-2------------------------------------------
+
+
+    
+
+
+//? --------FREE-MEMORY-------------------------------------
 
     delete banco1;
     delete banco2;

@@ -33,19 +33,6 @@ bool Bank::addAccount(Person* person, int inicialBalance){
     return true;
 }
 
-/* bool Bank::delNewestAccount(int BI_AccountOwner){
-    //this will delete the newest account found under the given BI
-    for (auto rit = this->accounts.rbegin(); rit != this->accounts.rend(); rit++) {
-        if(rit->AccountOwner->getBI() == BI_AccountOwner){
-            this->accounts.erase(rit);
-            return true;
-        }
-    }
-    cout << "There is no account under the BI: " << BI_AccountOwner << endl;
-    return false;
-}
- */
-
 bool Bank::delAccount(int BI_AccountOwner){
     //this will delete the oldest account found under the given BI
     for (auto it = this->accounts.begin(); it != this->accounts.end(); it++) {
@@ -59,22 +46,8 @@ bool Bank::delAccount(int BI_AccountOwner){
 }
 
 void Bank::delAllAccounts(){
-    //this will delete the oldest account found under the given BI
     this->accounts.clear();
 }
-
-/* bool Bank::delAccountByIdAccount(int idAccount){
-    //this will account who's id is equal to isAccount
-    for (auto it = this->accounts.begin(); it != this->accounts.end(); it++) {
-        if(it->idAccount == idAccount){
-            this->accounts.erase(it);
-            return true;
-        }
-    }
-    cout << "The account: " << idAccount << " does not exist in this bank!\n";
-    return false;
-}
- */
 
 Account* Bank::findAccount(int BI_AccountOwner){
     for (Account& account: this->accounts)

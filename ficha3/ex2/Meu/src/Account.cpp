@@ -1,14 +1,16 @@
 #include "..\\include\\Account.hpp"
 
 
-Account::Account(Person* AccountOwner, int inicialBalance = 0){
+int Account::nextIdAccount = 0;
+
+Account::Account(Person* AccountOwner, int inicialBalance) {
     this->AccountOwner = AccountOwner;
     this->balance = balance;
-    this->idAccount = Account::idAccount++;
+    this->idAccount = Account::nextIdAccount++;
 }
 
 Account::~Account(){
-    std::cout << this->AccountOwner << "'s account has been removed.\n";
+    cout << this->AccountOwner->getName() << "'s account has been removed.\n";
 }
 
 /* Account::Account(const Account& other) {
@@ -24,12 +26,12 @@ Account::~Account(){
     return *this;
 } */
 
-bool Account::operator==(Account& other) const {
-    return this.idAccount == other.idAccount;
+bool Account::operator==(const Account& other) const {
+    return this->idAccount == other.idAccount;
 }
 
-bool Account::operator<(Account& other) const {
-    return this.idAccount < other.idAccount;
+bool Account::operator<(const Account& other) const {
+    return this->idAccount < other.idAccount;
 }
 
 int Account::getBalance() const {

@@ -1,25 +1,29 @@
-#ifndef BANCO_H
-#define BANCO_H
+#ifndef BANK_H
+#define BANK_H
 
 #include "Account.hpp"
-#include <set>
+#include <vector>
+using namespace std;
 
 class Bank{    
-    string nome;
-    set<Account> accounts;
+    string name;
+    vector<Account> accounts;
 public:
     Bank(string name);
     ~Bank();
 
     string getBankName();
 
-    void Bank::addAccount(Person* person);
-    void Bank::addAccount(Person* person, int inicialBalance);
+    bool addAccount(Person* person);
+    bool addAccount(Person* person, int inicialBalance);
+    // bool delNewestAccount(int BI_AccountOwner);
     bool delAccount(int BI_AccountOwner);
-    Account* searchAccount(int BI_AccountOwner);
+    void delAllAccounts();
+    // bool delAccountByIdAccount(int idAccount);
+    Account* findAccount(int BI_AccountOwner);
 
-    int sumBalanceAllAccounts();
-    string commaSeperatedClientNames();
+    int sumBalanceAllAccounts() const;
+    string commaSeperatedClientNames() const;
 };
 
 

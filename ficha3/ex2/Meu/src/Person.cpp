@@ -1,6 +1,8 @@
 #include "..\\include\\Person.hpp"
 
 
+int Person::nextBI = 0;
+
 Person::Person(string city, string name, int age){
     if(name.empty() || city.empty()) return;
 
@@ -12,11 +14,15 @@ Person::Person(string city, string name, int age){
 }
 
 Person::~Person(){
-    std::cout << "The person: " << this->name << " has been removed.\n";
+    cout << "The person: " << this->name << " has been removed.\n";
 }
 
 string Person::getName(){
     return this->name;
+}
+
+void Person::setName(string newName){
+    if(!newName.empty()) this->name = newName;
 }
 
 string Person::getCity(){
@@ -32,7 +38,8 @@ int Person::getBI(){
 }
 
 void Person::showPerson(){
-    std::cout << "\t\x1B[34mName: \033[0m" << this->name << ' '; // Name
-    std::cout << "\x1B[34mCity: \033[0m" << this->city << ' ';   // City
-    std::cout << "\x1B[34mAge: \033[0m" << this->age << '\n';    // Age
+    cout << "\t\x1B[34mBI: \033[0m" << this->BI << ' '; // BI
+    cout << "\t\x1B[34mName: \033[0m" << this->name << ' '; // Name
+    cout << "\x1B[34mCity: \033[0m" << this->city << ' ';   // City
+    cout << "\x1B[34mAge: \033[0m" << this->age << '\n';    // Age
 }

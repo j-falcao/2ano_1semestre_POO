@@ -1,15 +1,27 @@
 #include "..\\include\\Bank.hpp"
 
-Banco(string nome){
-    
+Bank::Bank(string name){
+    this->name = name;
 }
-~Banco();
 
-string getBankName();
+Bank::~Banco(){
+    std::cout << "Bank: " << this->name << " has been removed!\n";
+}
 
-bool addAccount(int BI_AccountOwner);
-bool delAccount(int BI_AccountOwner);
-const Account* searchAccount(int BI_AccountOwner);
+string Bank::getBankName(){
+    return this->name
+}
 
-int sumBalanceAllAccounts();
-string commaSeperatedClientNames();
+bool Bank::addAccount(Person* person){
+    Account* newAccount = new Account(person);
+    if(this->accounts.contains(newAccount)) return false;
+    this->accounts.insert(newAccount);
+    return true;
+}
+
+
+bool Bank::delAccount(int BI_AccountOwner);
+const Account* Bank::searchAccount(int BI_AccountOwner);
+
+int Bank::sumBalanceAllAccounts();
+string Bank::commaSeperatedClientNames();

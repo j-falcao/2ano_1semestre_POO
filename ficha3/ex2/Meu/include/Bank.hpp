@@ -2,14 +2,14 @@
 #define BANCO_H
 
 #include "Account.hpp"
-#include <unordered_set>
+#include <set>
 
-class Banco{    
+class Bank{    
     string nome;
-    unordered_set<Account*> accounts;
+    set<Account*> accounts;
 public:
-    Banco(string nome);
-    ~Banco();
+    Bank(string name);
+    ~Bank();
 
     string getBankName();
 

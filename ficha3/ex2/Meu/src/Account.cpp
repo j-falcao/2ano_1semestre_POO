@@ -1,17 +1,26 @@
-#include "..\\include\\Conta.hpp"
+#include "..\\include\\Account.hpp"
 
 
 Account::Account(Person* AccountOwner, int balance = 0){
     if(balance < 0) balance = 0;
     this->AccountOwner = AccountOwner;
     this->balance = balance;
+    this->idAccount = Account::idAccount++;
 }
 
 Account::~Account(){
     std::cout << this->AccountOwner << "'s account has been removed.\n";
 }
 
-int Account::getBalance(){
+const Person* Account::getAccountOwner() const {
+    return AccountOwner;
+}
+
+bool operator==(const Account& other) const {
+    return this->idAccount == other.idAccount;
+}
+
+int Account::getBalance() const {
     return this->balance;
 }
 
@@ -26,7 +35,4 @@ bool Account::decreaseBalance(int withdraw){
     this->balance -= withdraw;
 }
 
-const Person* Account::getAccountOwner(){
-    return AccountOwner;
-}
 

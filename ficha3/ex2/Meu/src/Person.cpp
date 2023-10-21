@@ -8,6 +8,7 @@ Person::Person(string city, string name, int age){
     this->city = city;
     this->name = name;
     this->age = age;
+    this->BI = Person::nextBI++;
 }
 
 Person::~Person(){
@@ -24,6 +25,10 @@ string Person::getCity(){
 
 int Person::getAge(){
     return this->age;
+}
+
+int Person::getBI(){
+    return BI;
 }
 
 void Person::showPerson(){

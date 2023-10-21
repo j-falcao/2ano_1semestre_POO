@@ -5,8 +5,9 @@
 using namespace std;
 
 class Person{
+    static int nextBI = 0;
     string name, city;
-    int age;
+    int age, BI;
 public:
     Person(string city, string name, int age);
     ~Person();
@@ -14,6 +15,7 @@ public:
     string getName();
     string getCity();
     int getAge();
+    int getBI();
     void showPerson();
 };
 

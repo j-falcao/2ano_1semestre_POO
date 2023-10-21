@@ -6,7 +6,7 @@
 
 class Bank{    
     string nome;
-    set<Account*> accounts;
+    set<Account> accounts;
 public:
     Bank(string name);
     ~Bank();

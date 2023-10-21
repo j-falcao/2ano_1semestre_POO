@@ -16,8 +16,25 @@ const Person* Account::getAccountOwner() const {
     return AccountOwner;
 }
 
-bool operator==(const Account& other) const {
-    return this->idAccount == other.idAccount;
+Account::Account(const Account& other) {
+    this->balance = other.balance;
+    this->idAccount = other.idAccount;
+    this->AccountOwner = other.AccountOwner;
+}
+
+Account& Account::operator=(const Account& other) {
+    this->balance = other.balance;
+    this->idAccount = other.idAccount;
+    this->AccountOwner = other.AccountOwner;
+    return *this;
+}
+
+bool Account::operator==(const Account& other) const {
+    return this.idAccount == other.idAccount;
+}
+
+bool Account::operator<(const Account& other) const {
+    return this.idAccount < other.idAccount;
 }
 
 int Account::getBalance() const {

@@ -17,7 +17,17 @@ class Account{
 
     const Person* getAccountOwner() const;
 
+    // copy constructor
+    Account::Account(const Account& other);
+
+    // assignment operator overloading
+    Account& Account::operator=(const Account& other);
+
+    // comparison operator overloading
     bool operator==(const Account& other) const;
+
+    // less then operator overloading
+    bool operator<(const Account& other) const;
 
 public:
     int getBalance() const;

@@ -15,13 +15,11 @@ class Account{
     Account(Person* AccountOwner, int balance = 0);
     ~Account();
 
-    const Person* getAccountOwner() const;
-
     // copy constructor
-    Account::Account(const Account& other);
+    /* Account::Account(const Account& other); */ // not nedded because is making a shallow copy which is the job of the compiler would do anyway.
 
     // assignment operator overloading
-    Account& Account::operator=(const Account& other);
+    /* Account& Account::operator=(const Account& other); */ // not nedded because is making a shallow copy which is the job of the compiler would do anyway.
 
     // comparison operator overloading
     bool operator==(const Account& other) const;
@@ -33,6 +31,7 @@ public:
     int getBalance() const;
     bool increaseBalance(int deposit);
     bool decreaseBalance(int withdraw);
+    const Person* getAccountOwner() const;
 };
 
 

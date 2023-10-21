@@ -13,12 +13,13 @@ public:
 
     string getBankName();
 
-    bool addAccount(Person* person);
+    void Bank::addAccount(Person* person);
+    bool Bank::addAccount(Account& newAccount);
     bool delAccount(int BI_AccountOwner);
-    const Account* searchAccount(int BI_AccountOwner);
+    Account* searchAccount(int BI_AccountOwner);
 
     int sumBalanceAllAccounts();
-    string commaSeperatedAllClientsName();
+    string commaSeperatedClientNames();
 };
 
 

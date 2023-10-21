@@ -12,28 +12,24 @@ Account::~Account(){
     std::cout << this->AccountOwner << "'s account has been removed.\n";
 }
 
-const Person* Account::getAccountOwner() const {
-    return AccountOwner;
-}
-
-Account::Account(const Account& other) {
+/* Account::Account(const Account& other) {
     this->balance = other.balance;
     this->idAccount = other.idAccount;
     this->AccountOwner = other.AccountOwner;
-}
+} */
 
-Account& Account::operator=(const Account& other) {
+/* Account& Account::operator=(const Account& other) {
     this->balance = other.balance;
     this->idAccount = other.idAccount;
     this->AccountOwner = other.AccountOwner;
     return *this;
-}
+} */
 
-bool Account::operator==(const Account& other) const {
+bool Account::operator==(Account& other) const {
     return this.idAccount == other.idAccount;
 }
 
-bool Account::operator<(const Account& other) const {
+bool Account::operator<(Account& other) const {
     return this.idAccount < other.idAccount;
 }
 
@@ -50,6 +46,9 @@ bool Account::increaseBalance(int deposit){
 bool Account::decreaseBalance(int withdraw){
     if(withdraw <= 0 || this->balance - withdraw < 0) return false;
     this->balance -= withdraw;
+    return true;
 }
 
-
+const Person* Account::getAccountOwner() const {
+    return AccountOwner;
+}

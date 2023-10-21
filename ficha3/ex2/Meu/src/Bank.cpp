@@ -13,8 +13,13 @@ string Bank::getBankName(){
     return this->name
 }
 
-bool Bank::addAccount(Person* person){
+void Bank::addAccount(Person* person){
     Account newAccount(person);
+    this->accounts.insert(newAccount);
+}
+
+
+bool Bank::addAccount(Account& newAccount){
     if(this->accounts.contains(newAccount)) return false;
     this->accounts.insert(newAccount);
     return true;
@@ -22,7 +27,7 @@ bool Bank::addAccount(Person* person){
 
 bool Bank::delNewestAccount(int BI_AccountOwner){
     //this will delete the newest account found under the given BI
-    for (Account account : std::set<Account>(this->accounts.rbegin(), this->accounts.rend())) {
+    for (Account& account : std::set<Account>(this->accounts.rbegin(), this->accounts.rend())) {
         if(account.AccountOwner->getBI() == BI_AccountOwner){
             this->accounts.erase(account);
             return true;
@@ -34,7 +39,7 @@ bool Bank::delNewestAccount(int BI_AccountOwner){
 
 bool Bank::delOldestAccount(int BI_AccountOwner){
     //this will delete the oldest account found under the given BI
-    for (Account account: this->accounts) {
+    for (Account& account: this->accounts) {
         if(account.AccountOwner->getBI() == BI_AccountOwner){
             this->accounts.erase(account);
             return true;
@@ -46,7 +51,7 @@ bool Bank::delOldestAccount(int BI_AccountOwner){
 
 bool Bank::delAccountByIdAccount(int idAccount){
     //this will account who's id is equal to isAccount
-    for (Account account: this->accounts) {
+    for (Account& account: this->accounts) {
         if(account.idAccount == idAccount){
             this->accounts.erase(account);
             return true;
@@ -56,14 +61,21 @@ bool Bank::delAccountByIdAccount(int idAccount){
     return false;
 }
 
-const Account* Bank::searchAccount(int BI_AccountOwner){
-
+Account* Bank::searchAccount(int BI_AccountOwner) const {
+    for(Account& account: this->accounts)
+        if(account.AccountOwner->getBI() == BI_AccountOwner) return &account;
+    return nullptr;
 }
 
 int Bank::sumBalanceAllAccounts(){
-
+    int answer = 0;
+    for(const Account& account: this->accounts) answer += account.balance;
+    return answer;
 }
 
-string Bank::commaSeperatedClientNames(){
-    
+std::string Bank::commaSeperatedClientNames(){
+    std::string answer;
+    for(const Account& account: this->accounts) answer += account.AccountOwner->getName() + ',';
+    answer.erase(answer.length()-1);
+    return answer;
 }

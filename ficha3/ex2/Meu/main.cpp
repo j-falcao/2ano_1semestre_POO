@@ -1,6 +1,6 @@
-#include "..\\include\\Person.cpp"
-#include "..\\include\\Bank.cpp"
-#include "..\\include\\Account.cpp"
+#include "..\\src\\Person.cpp"
+#include "..\\src\\Bank.cpp"
+#include "..\\src\\Account.cpp"
 
 
 int main(){

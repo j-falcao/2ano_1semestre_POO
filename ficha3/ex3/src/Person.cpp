@@ -3,18 +3,24 @@
 
 int Person::nextBI = 0;
 
-Person::Person(string city, string name, int age){
+Person::Person(string city, string name, int age) : BI(Person::nextBI++){
     if(name.empty() || city.empty()) return;
 
     if(age < 0 || age > 120) age = 18;
     this->city = city;
     this->name = name;
     this->age = age;
-    this->BI = Person::nextBI++;
 }
 
 Person::~Person(){
     cout << "The person: " << this->name << " has been removed.\n";
+}
+
+Person& Person::operator=(const Person& other){
+    this->name = other.name;
+    this->city = other.city;
+    this->age = other.age;
+    return *this;
 }
 
 string Person::getName(){

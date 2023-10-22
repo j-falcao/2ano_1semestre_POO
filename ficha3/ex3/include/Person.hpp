@@ -7,10 +7,12 @@ using namespace std;
 class Person{
     string name, city;
     static int nextBI;
-    int age, BI;
+    const int BI;
+    int age;
 public:
     Person(string city, string name, int age);
     ~Person();
+    Person& operator=(const Person& other);
 
     string getName();
     void setName(string newName);

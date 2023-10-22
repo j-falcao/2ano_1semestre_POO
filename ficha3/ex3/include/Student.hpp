@@ -4,8 +4,13 @@
 #include "Person.hpp"
 #include "Subject.hpp"
 
-Class Student : public Person {
+class Student : public AcademicPerson {
+public:
+    Student(string city, string name, int age);
+    Student(string city, string name, int age, vector<Subjects*> subjects);
+    ~Student();
 
+    virtual void introduce();
 };
 
 

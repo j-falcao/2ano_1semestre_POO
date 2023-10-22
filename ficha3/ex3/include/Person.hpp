@@ -20,6 +20,7 @@ public:
     int getAge();
     int getBI();
     void showPerson();
+    virtual void introduce();
 };
 
 

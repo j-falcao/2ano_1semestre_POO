@@ -2,6 +2,7 @@
 #define SUBJECT_H
 
 #include <string>
+using namespace std;
 
 class Subject{
     static int nextId;
@@ -18,6 +19,10 @@ public:
 
     string getDescription();
     void setDescription();
+
+    void showSubject();
+
+    bool operator==(const Subject& other) const;
 }
 
 

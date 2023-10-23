@@ -6,7 +6,7 @@
 using namespace std;
 
 class Manager{
-    list<Person*> people;
+    list<Person*> people; 
 public:
     bool addPerson(string name, string city, int age);
     bool addPerson(Person *P);

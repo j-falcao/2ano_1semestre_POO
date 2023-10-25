@@ -6,8 +6,9 @@
 using namespace std;
 
 class Person{
-    string name, city;
     static int nextBI;
+protected:
+    string name, city;
     const int BI;
     int age;
 public:

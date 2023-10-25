@@ -15,15 +15,15 @@ public:
     const int getId();
 
     string getName();
-    void setName();
+    void setName(string newName);
 
     string getDescription();
-    void setDescription();
+    void setDescription(string newDescription);
 
     void showSubject();
 
     bool operator==(const Subject& other) const;
-}
+};
 
 
 

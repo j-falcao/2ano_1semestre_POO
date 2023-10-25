@@ -1,13 +1,27 @@
 #include "..\\include\\Turma.hpp"
 
-Turma(Person* professor, Subject* subject) : Professor(professor), Subject(subject) {}
+Turma::Turma(Professor* professor, Subject* subject) : professor(professor), subject(subject) {}
 
-Turma(Person* professor,  Subject* subject, vector<Person*> alunos){
+Turma::Turma(Professor* professor,  Subject* subject, vector<Student*> students) : professor(professor), subject(subject){
+    this->students = students;
+}
+
+bool Turma::addStudent(Student* newStudent){
+    return false;
+}
+
+bool Turma::delStudent(Student* student){
+    return false;
+}
+
+void Turma::setProfessor(Professor* newProfessor){
 
 }
 
-bool addStudent(Person* newStudent);
-bool delStudent(Person* student);
-void setProfessor(Person* newProfessor);
-const Person* getProfessor();
-const Subject* getSubject();
+const Professor* Turma::getProfessor(){
+    return nullptr;
+}
+
+const Subject* Turma::getSubject(){
+    return nullptr;
+}

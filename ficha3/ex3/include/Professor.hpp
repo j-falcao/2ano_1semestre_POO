@@ -6,7 +6,7 @@
 class Professor : public AcademicPerson {
 public:
     Professor(string city, string name, int age);
-    Professor(string city, string name, int age, vector<Subjects*> subjects);
+    Professor(string city, string name, int age, vector<Subject*> subjects);
     ~Professor();
 
     virtual void introduce();

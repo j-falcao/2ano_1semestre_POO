@@ -35,17 +35,17 @@ pessoas mas sim os originais.
 
 class Turma{
     Subject* subject;
-    Person* professor;
-    vector<Person*> students;
+    Professor* professor;
+    vector<Student*> students;
 public:
-    Turma(Person* professor, Subject* subject);
-    Turma(Person* professor,  Subject* subject, vector<Person*> alunos);
+    Turma(Professor* professor, Subject* subject);
+    Turma(Professor* professor,  Subject* subject, vector<Student*> alunos);
 
-    bool addStudent(Person* newStudent);
-    bool delStudent(Person* student);
+    bool addStudent(Student* newStudent);
+    bool delStudent(Student* student);
 
-    void setProfessor(Person* newProfessor);
-    const Person* getProfessor();
+    void setProfessor(Professor* newProfessor);
+    const Professor* getProfessor();
 
     const Subject* getSubject();
 };

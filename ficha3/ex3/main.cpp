@@ -1,7 +1,7 @@
-#include "..\\src\\Professor.cpp"
-#include "..\\src\\Student.cpp"
-#include "..\\src\\Subject.cpp"
-#include "..\\src\\Turma.cpp"
+#include "src\\Professor.cpp"
+#include "src\\Student.cpp"
+#include "src\\Subject.cpp"
+#include "src\\Turma.cpp"
 
 
 int main(){
@@ -19,9 +19,6 @@ int main(){
     Student student4("Lisboa", "Beatriz", 19);
     Student student5("Aveiro", "Rodrigo", 17);
 
-
-    
-    
 
     return 0;
 }

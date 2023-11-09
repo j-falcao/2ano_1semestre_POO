@@ -1,0 +1,14 @@
+projeto POO
+
+modo begginer que faz recomendacoes de jogadas.
+Recomendacoes para parar de jogar se for detetado o risco de falencia.
+Bar, restaurante, hotel.
+Conectar todas as informacoes a base de dados e comunicar através de uma api
+Janelas
+Monitoramento em tempo real de jogador por parte de admin 
+Ser possivel controlar as ações de um determinado jogador. Como se fosse um video jogo 
+Criar seccao de intrucoes de como jogar cada jogo
+Podiamos ter o projecto e depois a parte dissi ter o projecto com tema de jogo. Para separar o programa em modo automatico, no qual podiamos ser o admin e observar em tempo real um determinado jogador (o que foi dito acima),  e modo manual (gamified).
+Isso e para nao poderem dizer que nao seguimos o enunciado
+
+
